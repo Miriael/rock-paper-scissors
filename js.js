@@ -1,4 +1,3 @@
-
 function computerPlays() {
   let moves = ['rock', 'paper', 'scissors']
   computerMove = moves[Math.floor(Math.random() * moves.length)];
@@ -7,48 +6,48 @@ function computerPlays() {
 
 function playRound(playerSelection, computerSelection) {
   if (playerSelection == undefined) {
-    return null
+    return null;
   }
   if (playerSelection.toLowerCase() != 'rock' && playerSelection.toLowerCase() != 'scissors' && playerSelection.toLowerCase() != 'paper') {
     alert('Invalid input.');
-    return null
+    return null;
   } else if (playerSelection.toLowerCase() == 'rock' && computerSelection == 'paper') {
     alert("You lose! Paper beats rock.");
-    return false
+    return false;
   } else if (playerSelection.toLowerCase() == 'rock' && computerSelection == 'scissors') {
     alert("You win! Rock beats scissors.");
-    return true
+    return true;
   } else if (playerSelection.toLowerCase() == 'paper' && computerSelection == 'rock') {
     alert("You win! Paper beats rock.");
-    return true
+    return true;
   } else if (playerSelection.toLowerCase() == 'paper' && computerSelection == 'scissors') {
     alert("You lose! Scissors beat paper.");
-    return false
+    return false;
   } else if (playerSelection.toLowerCase() == 'scissors' && computerSelection == 'rock') {
     alert("You lose! Rock beats scissors.");
-    return false
+    return false;
   } else if (playerSelection.toLowerCase() == 'scissors' && computerSelection == 'paper') {
     alert("You win! Scissors beat paper.");
-    return true
+    return true;
   } else if (playerSelection.toLowerCase() == computerSelection) {
     alert("It's a tie!")
-    return null
+    return null;
   }
 } 
 
 function game() {
-  let wins = 0
-  let losses = 0
+  let wins = 0;
+  let losses = 0;
   for (let i = 0; i < 5; i++) {
     result = playRound(prompt('Rock, paper or scissors?'), computerPlays())
     if (result == null) {
       continue;
     } else if (result == true) {
-      wins += 1
+      wins += 1;
     }
     else if (result == false) {
-      losses += 1
+      losses += 1;
     }
   }
-  alert(`Wins: ${wins} Losses: ${losses}`)
+  alert(`Wins: ${wins} Losses: ${losses}`);
   }
