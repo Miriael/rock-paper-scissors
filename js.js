@@ -1,36 +1,54 @@
-//Create a function that randomly selects the computer's move and stores that in a variable
-const MOVES = ['rock', 'paper', 'scissors']
+
 function computerPlays() {
-  computerMove = MOVES[Math.floor(Math.random() * MOVES.length)]
+  let moves = ['rock', 'paper', 'scissors']
+  computerMove = moves[Math.floor(Math.random() * moves.length)];
   return computerMove;
 }
-//Create a function that plays a single round and returns who won
+
 function playRound(playerSelection, computerSelection) {
   if (playerSelection == undefined) {
-    playerSelection = ''
+    return null
   }
   if (playerSelection.toLowerCase() != 'rock' && playerSelection.toLowerCase() != 'scissors' && playerSelection.toLowerCase() != 'paper') {
     alert('Invalid input.');
+    return null
   } else if (playerSelection.toLowerCase() == 'rock' && computerSelection == 'paper') {
-    return "You lose! Paper beats rock."
+    alert("You lose! Paper beats rock.");
+    return false
   } else if (playerSelection.toLowerCase() == 'rock' && computerSelection == 'scissors') {
-    return "You win! Rock beats scissors."
+    alert("You win! Rock beats scissors.");
+    return true
   } else if (playerSelection.toLowerCase() == 'paper' && computerSelection == 'rock') {
-    return "You win! Paper beats rock."
+    alert("You win! Paper beats rock.");
+    return true
   } else if (playerSelection.toLowerCase() == 'paper' && computerSelection == 'scissors') {
-    return "You lose! Scissors beat paper."
+    alert("You lose! Scissors beat paper.");
+    return false
   } else if (playerSelection.toLowerCase() == 'scissors' && computerSelection == 'rock') {
-    return "You lose! Rock beats scissors."
+    alert("You lose! Rock beats scissors.");
+    return false
   } else if (playerSelection.toLowerCase() == 'scissors' && computerSelection == 'paper') {
-    return "You win! Scissors beat paper."
+    alert("You win! Scissors beat paper.");
+    return true
   } else if (playerSelection.toLowerCase() == computerSelection) {
-    return "It's a tie!"
+    alert("It's a tie!")
+    return null
   }
 } 
 
 function game() {
+  let wins = 0
+  let losses = 0
   for (let i = 0; i < 5; i++) {
-    playRound(prompt('Rock, paper or scissors?'), computerPlays())
+    result = playRound(prompt('Rock, paper or scissors?'), computerPlays())
+    if (result == null) {
+      continue;
+    } else if (result == true) {
+      wins += 1
+    }
+    else if (result == false) {
+      losses += 1
+    }
   }
-}
-//Create a function that calls the play function X times and keeps track of games and score
+  alert(`Wins: ${wins} Losses: ${losses}`)
+  }
