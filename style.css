@@ -1,0 +1,62 @@
+body {
+  padding: 0px;
+  margin: 0px;
+  height: 100vh;
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background-color: rgb(94, 72, 97);
+}
+
+#title {
+  justify-self: flex-start;
+  flex: 1 0 auto;
+  color: lightsteelblue;
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  flex: 2 1 auto;
+}
+
+#wins,
+#losses {
+  font-weight: bolder;
+}
+
+#gameLog {
+  height: 100px;
+}
+
+.results {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+#rock {
+  background-image: url( './img/rock.png' );
+  height: 200px;
+  width: 200px;
+  background-size: 200px 200px;
+}
+
+#paper {
+  background-image: url( './img/paper.png' );
+  height: 200px;
+  width: 200px;
+  background-size: 200px 200px;
+}
+
+#scissors {
+  background-image: url( './img/scissors.png' );
+  height: 200px;
+  width: 200px;
+  background-size: 200px 200px;
+}
+
+.hidden {
+  display: none;
+}
